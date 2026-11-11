@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Akhil | Python Full Stack Developer</title>
+
+    <link rel="stylesheet" href="{% static 'portfoli.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">AKHIL<span>.</span></div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="subtitle">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>Hello, I'm <span>Akhil</span></h1>
+
+            <h2>Python Full Stack Developer</h2>
+
+            <p class="description">
+                Computer Science Graduate | Web Developer
+            </p>
+
+            <a href="#contact" class="btn">Contact Me →</a>
+            <a href="#projects" class="btn secondary">View Projects</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <p class="subtitle">GET TO KNOW ME</p>
+        <h1>About Me</h1>
+
+        <div class="about-card">
+            <p>
+                I completed my B.Tech in Computer Science
+                and Engineering from Trinity College of
+                Engineering and Technology.
+
+                I am interested in Python development,
+                web development and building practical
+                software applications.
+
+                I enjoy learning new technologies and
+                improving my technical skills.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <p class="subtitle">MY TECHNICAL EXPERTISE</p>
+        <h1>My Skills</h1>
+
+        <div class="skills-container">
+            <div class="skill-card">Python</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+            <div class="skill-card">Django</div>
+            <div class="skill-card">SQL</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+        <p class="subtitle">MY RECENT WORK</p>
+        <h1>My Projects</h1>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+                <h2>E-Commerce Website</h2>
+                <p>
+                    A web application designed to display
+                    products and provide an online shopping
+                    experience.
+                </p>
+                <span>HTML | CSS | JavaScript | Python</span>
+            </div>
+
+            <div class="project-card">
+                <h2>Cloud ML Security Project</h2>
+                <p>
+                    Privilege escalation attack detection
+                    and mitigation using Cloud and Machine
+                    Learning.
+                </p>
+                <span>Python | Cloud Computing | Machine Learning</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <p class="subtitle">LET'S CONNECT</p>
+        <h1>Contact Me</h1>
+
+        <p class="contact-description">
+            Have an opportunity or project in mind?
+            Send me a message.
+        </p>
+
+        <div class="contact-card">
+
+            <form method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <textarea
+                    name="message"
+                    placeholder="Enter your message"
+                    rows="6"
+                    required
+                ></textarea>
+
+                <button type="submit">Send Message →</button>
+            </form>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="success-message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+       
+    </footer>
+
+    <script src="{% static 'portfolio.js' %}"></script>
+
+</body>
+</html>
